@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "optParse.h"
+#include "option.h"
+#include "argparser.h"
 
 int flagLines, flagBytes, flagWords;
 
@@ -11,10 +12,10 @@ struct Option options[] =
   {"words", 'w', &flagWords, 0, NULL}
 };
 
-//const char* shortOptions
+int optionsAmount = 3;
 
 int main (int argc, char** argv) {
-  optParse(argc, argv, options, 3); 
+  argvParse(argc, argv); 
 
   printf("%d %d %d", *options[0].flag, *options[1].flag,*options[2].flag);  
   return 0;
